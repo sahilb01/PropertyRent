@@ -113,7 +113,8 @@ app.use((err,req,res,next)=>{
     res.status(status).render('error.ejs',{message})
     // res.status(status).send(message);
 })
+const PORT=8080;
 
-app.listen(8080,()=>{
+app.listen(PORT,()=>{
     console.log("Server is running on port http://localhost:8080/listings");
 })
