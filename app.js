@@ -98,6 +98,9 @@ app.use((req,res,next)=>{
 //     const registeredUser=await User.register(fakeUser,"helloworld");
 //     res.send(registeredUser);
 // })
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 app.use("/listings",listingRouter)
 app.use('/listings/:id/review',reviewRouter)
