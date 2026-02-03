@@ -5,9 +5,10 @@
         <!-- <form action="/listings/add" method="get"><button>Create New Listing</button></form> -->
 
         <style>
-            .tax-info{
+            .tax-info {
                 display: none;
             }
+
             .filters-container {
                 display: flex;
                 align-items: center;
@@ -16,10 +17,25 @@
             }
 
             #filters-wrapper {
+                min-width: 0;
                 overflow-x: auto;
                 flex: 1;
                 scroll-behavior: smooth;
             }
+
+            @media (max-width: 420px) {
+                .scroll-btn {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 420px) {
+                .tax-toggle {
+                    font-size: 0.75rem;
+                    padding: 0.3rem 0.4rem;
+                }
+            }
+
 
             #filters-wrapper::-webkit-scrollbar {
                 display: none;
@@ -28,7 +44,7 @@
             #filters {
                 display: flex;
                 gap: 24px;
-                padding: 12px 8px;
+                padding: 4px 4px;
                 white-space: nowrap;
             }
 
@@ -72,7 +88,7 @@
                 border: 2px solid black;
                 border-radius: 0.6rem;
                 padding: 0.5rem;
-                margin-left: 2rem;
+                margin-left: 0.2rem;
             }
         </style>
         <div class="filters-container">
@@ -175,8 +191,8 @@
                                 </p>
                             </b>
                             <p class="card-text">&#8377;<%=list.price.toLocaleString("en-IN")%>
-                            <i class="tax-info">&nbsp;&nbsp;+18% taxes</i></p>
-                            
+                                    <i class="tax-info">&nbsp;&nbsp;+18% taxes</i></p>
+
                         </div>
                     </div>
                 </a>
@@ -199,15 +215,15 @@
     <script>
         let taxSwitch = document.getElementById('switchCheckDefault');
         taxSwitch.addEventListener("click", () => {
-            let taxInfo=document.getElementsByClassName('tax-info');
-            for(info of taxInfo){
-                if(info.style.display!='inline'){
-                    info.style.display='inline';
+            let taxInfo = document.getElementsByClassName('tax-info');
+            for (info of taxInfo) {
+                if (info.style.display != 'inline') {
+                    info.style.display = 'inline';
 
                 }
-                else{
-                    info.style.display='none';
-                    
+                else {
+                    info.style.display = 'none';
+
                 }
             }
         })
